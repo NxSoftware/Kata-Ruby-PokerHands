@@ -1,9 +1,11 @@
+require_relative 'poker_player.rb'
+
 class PokerInputParser
   
   attr_reader :players
   
   def initialize(input)
-    @players = [1,2]
+    @players = [PokerPlayer.new, PokerPlayer.new]
   end
   
 end
