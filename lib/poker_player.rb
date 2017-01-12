@@ -3,7 +3,13 @@ class PokerPlayer
   attr_accessor :cards
   
   def initialize()
-    @cards = [0,0,0,0,0]
+    @cards = [
+      '2H',
+      '3D',
+      '5S',
+      '9C',
+      'KD',
+    ]
   end
   
 end

@@ -14,6 +14,13 @@ RSpec.describe PokerInputParser, '#parse' do
         expect(player.cards.count).to be(5)
       end
     end
+    
+    it 'player 1\'s cards are 2H 3D 5S 9C KD' do
+      actual_cards = players[0].cards
+      expected_cards = ['2H', '3D', '5S', '9C', 'KD']
+      expect(actual_cards).to match(expected_cards)
+    end
+    
   end
   
 end
