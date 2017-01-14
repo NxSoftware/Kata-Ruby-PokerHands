@@ -53,6 +53,7 @@ class PokerHand
   end
   
   def straight_flush
+    straight if flush
   end
   
   private

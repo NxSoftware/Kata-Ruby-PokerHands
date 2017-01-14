@@ -145,6 +145,8 @@ describe PokerHand do
     expect_straight_flush(nil, [])
     expect_straight_flush(nil, ['2H', '3H', '4H', '5H', '7H'])
     expect_straight_flush(nil, ['2H', '3H', '4H', '5H', '6S'])
+    expect_straight_flush(6, ['2H', '3H', '4H', '5H', '6H'])
+    expect_straight_flush(6, ['2H', '3H', '4H', '6H', '5H'])
   end
   
 end
