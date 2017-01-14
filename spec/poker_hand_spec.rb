@@ -99,6 +99,7 @@ describe PokerHand do
   describe '#flush' do
     expect_flush(nil, [])
     expect_flush(nil, ['2H', '3H', '4H', '5C', '7H'])
+    expect_flush(7, ['2H', '3H', '4H', '7H', '5H'])
   end
   
 end

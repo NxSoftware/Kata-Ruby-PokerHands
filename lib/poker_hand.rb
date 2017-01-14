@@ -35,6 +35,15 @@ class PokerHand
   end
   
   def flush
+    counts = @cards.each_with_object(Hash.new(0)) do |card, hash|
+      hash[card.suit] += 1
+    end
+    
+    five_of_same_suit = counts.select do |_, count|
+      count == 5
+    end
+    
+    @cards.sort.last.value if five_of_same_suit.count == 1
   end
   
   private
