@@ -17,6 +17,10 @@ describe CardParser, '#parse' do
       :value => 2,
       :suit => Suit::SPADES
     },
+    'TH' => {
+      :value => 10,
+      :suit => Suit::HEARTS
+    },
     'JH' => {
       :value => 11,
       :suit => Suit::HEARTS
