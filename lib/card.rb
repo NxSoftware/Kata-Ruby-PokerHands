@@ -15,8 +15,19 @@ class Card
 end
 
 module Suit
+  module_function
+  
   HEARTS = 'H'
   DIAMONDS = 'D'
   CLUBS = 'C'
   SPADES = 'S'
+  
+  def is_valid?(suit)
+    [
+      Suit::HEARTS,
+      Suit::DIAMONDS,
+      Suit::CLUBS,
+      Suit::SPADES
+    ].include? suit
+  end
 end

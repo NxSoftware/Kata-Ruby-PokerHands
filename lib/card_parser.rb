@@ -12,14 +12,6 @@ class CardParser
     end
     
     suit = input[1]
-    
-    return nil unless [
-      Suit::HEARTS,
-      Suit::DIAMONDS,
-      Suit::CLUBS,
-      Suit::SPADES
-    ].include? suit
-    
-    Card.new value, suit
+    Card.new(value, suit) if Suit.is_valid?(suit)
   end
 end
