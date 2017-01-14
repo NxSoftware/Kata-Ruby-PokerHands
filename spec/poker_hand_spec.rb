@@ -56,6 +56,15 @@ def expect_flush(expected_highest_value, cards)
   end
 end
 
+def expect_full_house(expected_highest_value, cards)
+  context "given #{cards}" do
+    it "the highest value of the full house is #{expected_highest_value}" do
+      hand = hand(cards)
+      expect(hand.full_house).to match(expected_highest_value)
+    end
+  end
+end
+
 describe PokerHand do
   describe '#high_card' do
     expect_high_card(nil, [])
@@ -100,6 +109,11 @@ describe PokerHand do
     expect_flush(nil, [])
     expect_flush(nil, ['2H', '3H', '4H', '5C', '7H'])
     expect_flush(7, ['2H', '3H', '4H', '7H', '5H'])
+  end
+  
+  describe '#full_house' do
+    expect_full_house(nil, [])
+    expect_full_house(nil, ['2H', '3H', '3C', '3D', '4H'])
   end
   
 end

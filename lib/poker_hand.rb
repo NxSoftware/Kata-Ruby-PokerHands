@@ -39,6 +39,9 @@ class PokerHand
     @cards.sort.last.value unless five_of_same_suit.empty?
   end
   
+  def full_house
+  end
+  
   private
   def pairs
     cards_of_same_value_occurring 2
