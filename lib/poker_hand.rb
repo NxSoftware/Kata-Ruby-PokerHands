@@ -5,7 +5,7 @@ class PokerHand
   end
   
   def high_card
-    @cards.sort.last
+    @cards.sort.last.value
   end
   
   def pair
