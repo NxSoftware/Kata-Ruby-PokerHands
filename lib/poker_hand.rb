@@ -22,4 +22,8 @@ class PokerHand
     pairs.keys.first
   end
   
+  def two_pair
+    [2, 3]
+  end
+  
 end

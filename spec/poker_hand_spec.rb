@@ -21,6 +21,15 @@ def expect_pair(expected_value, cards)
   end
 end
 
+def expect_two_pair(expected_pair, cards)
+  context "given #{cards}" do
+    it "the values of the two pairs are #{expected_pair}" do
+      hand = hand(cards)
+      expect(hand.two_pair).to match(expected_pair)
+    end
+  end
+end
+
 describe PokerHand do
   describe '#high_card' do
     expect_high_card('6H', ['2H', '3H', '4H', '5H', '6H'])
@@ -35,6 +44,10 @@ describe PokerHand do
     expect_pair(2, ['2H', '4H', '2C', '5H', '6H'])
     expect_pair(3, ['2H', '3C', '3H', '5H', '6H'])
     expect_pair(nil, ['2H', '3C', '4H', '5H', '6H'])
+  end
+  
+  describe '#two_pair' do
+    expect_two_pair([2, 3], ['2H', '3C', '2S', '4D', '3D'])
   end
   
 end
