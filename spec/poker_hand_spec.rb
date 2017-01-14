@@ -83,6 +83,16 @@ def expect_straight_flush(expected_highest_value, cards)
   end
 end
 
+def expect_royal_flush(is_royal_flush, cards)
+  context "given #{cards}" do
+    msg = is_royal_flush ? 'is a royal flush' : 'not a royal flush'
+    it msg do
+      hand = hand(cards)
+      expect(hand.royal_flush?).to be(is_royal_flush)
+    end
+  end
+end
+
 describe PokerHand do
   describe '#high_card' do
     expect_high_card(nil, [])
@@ -147,6 +157,12 @@ describe PokerHand do
     expect_straight_flush(nil, ['2H', '3H', '4H', '5H', '6S'])
     expect_straight_flush(6, ['2H', '3H', '4H', '5H', '6H'])
     expect_straight_flush(6, ['2H', '3H', '4H', '6H', '5H'])
+  end
+  
+  describe '#royal_flush' do
+    expect_royal_flush(false, [])
+    expect_royal_flush(false, ['9H', 'JH', 'QH', 'KH', 'AH'])
+    expect_royal_flush(false, ['TH', 'JH', 'QH', 'KH', 'AC'])
   end
   
 end

@@ -56,6 +56,10 @@ class PokerHand
     straight if flush
   end
   
+  def royal_flush?
+    false
+  end
+  
   private
   def pairs
     cards_of_same_value_occurring 2
