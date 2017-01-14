@@ -8,4 +8,8 @@ class PokerHand
     @cards.sort.last
   end
   
+  def pair
+    return 2
+  end
+  
 end

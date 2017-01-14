@@ -12,13 +12,27 @@ def expect_high_card(expected_high_card, cards)
   end
 end
 
-describe PokerHand, '#high_card' do
+def expect_pair(expected_value, cards)
+  context "given #{cards}" do
+    it "the pair's value is #{expected_value}" do
+      hand = hand(cards)
+      expect(hand.pair).to match(expected_value)
+    end
+  end
+end
 
-  expect_high_card('6H', ['2H', '3H', '4H', '5H', '6H'])
-  expect_high_card('6H', ['6H', '2H', '3H', '4H', '5H'])
-  expect_high_card('TH', ['9C', 'TH', '8S', '2D', '5H'])
-  expect_high_card('JH', ['9C', 'TH', 'JH', '2D', '5H'])
-  expect_high_card('QC', ['QC', 'TH', 'JH', '2D', '5H'])
-  expect_high_card('KC', ['QC', 'TH', 'JH', 'KC', '5H'])
+describe PokerHand do
+  describe '#high_card' do
+    expect_high_card('6H', ['2H', '3H', '4H', '5H', '6H'])
+    expect_high_card('6H', ['6H', '2H', '3H', '4H', '5H'])
+    expect_high_card('TH', ['9C', 'TH', '8S', '2D', '5H'])
+    expect_high_card('JH', ['9C', 'TH', 'JH', '2D', '5H'])
+    expect_high_card('QC', ['QC', 'TH', 'JH', '2D', '5H'])
+    expect_high_card('KC', ['QC', 'TH', 'JH', 'KC', '5H'])
+  end
+
+  describe '#pair' do
+    expect_pair(2, ['2H', '4H', '2C', '5H', '6H'])
+  end
   
 end
