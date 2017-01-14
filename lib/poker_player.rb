@@ -2,7 +2,8 @@ class PokerPlayer
   
   attr_accessor :cards
   
-  def initialize(cards_string)
+  def initialize(colour, cards_string)
+    @colour = colour
     @cards = cards_string.split ' '
   end
   

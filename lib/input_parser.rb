@@ -5,10 +5,16 @@ class PokerInputParser
   attr_reader :players
   
   def initialize(input)
-    @players = [
-      PokerPlayer.new('2H 3D 5S 9C KD'),
-      PokerPlayer.new('2C 3H 4S 8C AH'),
-    ]
+    @players = input.split('  ').map do |p|
+      PokerPlayerParser.parse p
+    end
   end
   
+end
+
+class PokerPlayerParser
+  def self.parse(input)
+    (colour, cards) = input.split(': ')
+    PokerPlayer.new colour, cards
+  end
 end
