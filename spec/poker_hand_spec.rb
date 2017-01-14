@@ -114,6 +114,7 @@ describe PokerHand do
   describe '#full_house' do
     expect_full_house(nil, [])
     expect_full_house(nil, ['2H', '3H', '3C', '3D', '4H'])
+    expect_full_house(4, ['2H', '4H', '4C', '4D', '2C'])
   end
   
 end

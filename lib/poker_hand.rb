@@ -40,6 +40,12 @@ class PokerHand
   end
   
   def full_house
+    pair = pairs
+    three_oak = cards_of_same_value_occurring 3
+    
+    if pair.count == 1 && three_oak.count == 1
+      three_oak.keys.first
+    end
   end
   
   private
