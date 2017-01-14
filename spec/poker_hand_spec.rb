@@ -31,6 +31,7 @@ end
 
 describe PokerHand do
   describe '#high_card' do
+    expect_high_card(nil, [])
     expect_high_card(6, ['2H', '3H', '4H', '5H', '6H'])
     expect_high_card(6, ['6H', '2H', '3H', '4H', '5H'])
     expect_high_card(10, ['9C', 'TH', '8S', '2D', '5H'])

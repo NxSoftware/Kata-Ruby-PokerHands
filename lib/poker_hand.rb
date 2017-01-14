@@ -5,7 +5,8 @@ class PokerHand
   end
   
   def high_card
-    @cards.sort.last.value
+    card = @cards.sort.last
+    card.value if card
   end
   
   def pair
