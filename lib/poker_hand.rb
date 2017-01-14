@@ -23,8 +23,15 @@ class PokerHand
   end
   
   def straight
-    last_card = @cards.last
-    last_card.value if last_card && last_card.value == 6
+    previous_card = @cards.first
+    streak = 1
+    (1...@cards.count).each do |i|
+      card = @cards[i]
+      streak += 1 if card.value - previous_card.value == 1
+      previous_card = card
+    end
+    
+    @cards.last.value if streak == 5
   end
   
   private
