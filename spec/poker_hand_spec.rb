@@ -80,6 +80,7 @@ describe PokerHand do
   end
   
   describe '#straight' do
+    expect_straight(nil, [])
     expect_straight(6, ['2H', '3H', '4H', '5H', '6H'])
   end
   
