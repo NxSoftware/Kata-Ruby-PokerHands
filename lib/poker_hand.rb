@@ -18,6 +18,10 @@ class PokerHand
     p.keys.sort if p.count > 0
   end
   
+  def three_of_a_kind
+    2
+  end
+  
   private
   def pairs
     counts = {}

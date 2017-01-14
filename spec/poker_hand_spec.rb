@@ -29,6 +29,15 @@ def expect_two_pair(expected_pair, cards)
   end
 end
 
+def expect_three_of_a_kind(expected_value, cards)
+  context "given #{cards}" do
+    it "the values of the 3OAK is #{expected_value}" do
+      hand = hand(cards)
+      expect(hand.three_of_a_kind).to match(expected_value)
+    end
+  end
+end
+
 describe PokerHand do
   describe '#high_card' do
     expect_high_card(nil, [])
@@ -50,6 +59,10 @@ describe PokerHand do
     expect_two_pair([2, 3], ['2H', '3C', '2S', '4D', '3D'])
     expect_two_pair([9, 10], ['TH', 'TD', '9C', '4C', '9H'])
     expect_two_pair(nil, ['2H', '3C', '4H', '5H', '6H'])
+  end
+  
+  describe '#three_of_a_kind' do
+    expect_three_of_a_kind(2, ['2H', '3C', '2S', '4D', '2C'])
   end
   
 end
