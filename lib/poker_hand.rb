@@ -34,12 +34,9 @@ class PokerHand
   end
   
   def counts
-    c = {}
-    @cards.each do |card|
-      count = (c[card.value] || 0) + 1
-      c[card.value] = count
+    @cards.each_with_object(Hash.new(0)) do |card, hash|
+      hash[card.value] += 1
     end
-    c
   end
   
 end
