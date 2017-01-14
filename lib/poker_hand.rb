@@ -23,7 +23,8 @@ class PokerHand
   end
   
   def straight
-    @cards.last.value if @cards.count > 0
+    last_card = @cards.last
+    last_card.value if last_card && last_card.value == 6
   end
   
   private
