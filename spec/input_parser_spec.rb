@@ -21,7 +21,7 @@ RSpec.describe PokerInputParser, '#parse' do
         actual_cards = @players[i].cards
         
         expected_cards.each.with_index do |c, card_index|
-          expect(actual_cards[card_index]).to match(Card.new c)
+          expect(actual_cards[card_index]).to match(CardParser.parse c)
         end
       end
     end
