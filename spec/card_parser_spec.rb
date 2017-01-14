@@ -20,7 +20,11 @@ describe CardParser, '#parse' do
     'JH' => {
       :value => 11,
       :suit => Suit::HEARTS
-    }
+    },
+    'QH' => {
+      :value => 12,
+      :suit => Suit::HEARTS
+    },
   }
   
   inputs.each do |input, v|

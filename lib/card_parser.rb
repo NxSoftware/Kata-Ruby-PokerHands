@@ -4,6 +4,7 @@ class CardParser
     case value
     when '1'..'10' then value = value.to_i
     when 'J' then value = 11
+    when 'Q' then value = 12
     end
     
     Card.new value, input[1]
