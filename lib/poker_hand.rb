@@ -33,7 +33,7 @@ class PokerHand
       count == 2
     end
     
-    pairs.keys.sort
+    pairs.keys.sort if pairs.count > 0
   end
   
 end
