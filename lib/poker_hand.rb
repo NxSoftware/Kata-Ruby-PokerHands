@@ -35,11 +35,7 @@ class PokerHand
   end
   
   def flush
-    counts = @cards.each_with_object(Hash.new(0)) do |card, hash|
-      hash[card.suit] += 1
-    end
-    
-    five_of_same_suit = counts.select do |_, count|
+    five_of_same_suit = counts_by_suit.select do |_, count|
       count == 5
     end
     
@@ -60,6 +56,12 @@ class PokerHand
   def counts
     @cards.each_with_object(Hash.new(0)) do |card, hash|
       hash[card.value] += 1
+    end
+  end
+  
+  def counts_by_suit
+    @cards.each_with_object(Hash.new(0)) do |card, hash|
+      hash[card.suit] += 1
     end
   end
   
