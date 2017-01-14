@@ -12,6 +12,10 @@ class Card
   def ==(other)
     self.class == other.class && @description == other.description
   end
+  
+  def <=>(other)
+    self.value <=> other.value
+  end
 end
 
 module Suit
