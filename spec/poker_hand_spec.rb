@@ -65,6 +65,15 @@ def expect_full_house(expected_highest_value, cards)
   end
 end
 
+def expect_four_of_a_kind(expected_value, cards)
+  context "given #{cards}" do
+    it "the values of the 4OAK is #{expected_value}" do
+      hand = hand(cards)
+      expect(hand.four_of_a_kind).to match(expected_value)
+    end
+  end
+end
+
 describe PokerHand do
   describe '#high_card' do
     expect_high_card(nil, [])
@@ -115,6 +124,11 @@ describe PokerHand do
     expect_full_house(nil, [])
     expect_full_house(nil, ['2H', '3H', '3C', '3D', '4H'])
     expect_full_house(4, ['2H', '4H', '4C', '4D', '2C'])
+  end
+  
+  describe '#four_of_a_kind' do
+    expect_four_of_a_kind(nil, [])
+    expect_four_of_a_kind(nil, ['2H', '3H', '4H', '5H', '6H'])
   end
   
 end

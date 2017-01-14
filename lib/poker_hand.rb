@@ -48,6 +48,9 @@ class PokerHand
     end
   end
   
+  def four_of_a_kind
+  end
+  
   private
   def pairs
     cards_of_same_value_occurring 2
