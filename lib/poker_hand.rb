@@ -48,20 +48,22 @@ class PokerHand
   end
   
   def cards_occurring(times)
-    counts.select do |value, count|
+    counts_by_value.select do |value, count|
       count == times
     end
   end
   
-  def counts
-    @cards.each_with_object(Hash.new(0)) do |card, hash|
-      hash[card.value] += 1
-    end
+  def counts_by_value
+    counts_by { |card| card.value }
   end
   
   def counts_by_suit
+    counts_by { |card| card.suit }
+  end
+  
+  def counts_by(&predicate)
     @cards.each_with_object(Hash.new(0)) do |card, hash|
-      hash[card.suit] += 1
+      hash[predicate.call card] += 1
     end
   end
   
