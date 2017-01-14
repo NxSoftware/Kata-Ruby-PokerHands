@@ -57,7 +57,7 @@ class PokerHand
   end
   
   def royal_flush?
-    false
+    straight_flush == 14
   end
   
   private

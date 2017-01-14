@@ -163,6 +163,7 @@ describe PokerHand do
     expect_royal_flush(false, [])
     expect_royal_flush(false, ['9H', 'JH', 'QH', 'KH', 'AH'])
     expect_royal_flush(false, ['TH', 'JH', 'QH', 'KH', 'AC'])
+    expect_royal_flush(true, ['TH', 'JH', 'QH', 'KH', 'AH'])
   end
   
 end
