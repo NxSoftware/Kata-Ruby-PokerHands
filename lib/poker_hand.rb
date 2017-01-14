@@ -49,6 +49,7 @@ class PokerHand
   end
   
   def four_of_a_kind
+    cards_of_same_value_occurring(4).keys.first
   end
   
   private

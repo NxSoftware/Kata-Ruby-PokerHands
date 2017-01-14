@@ -129,6 +129,7 @@ describe PokerHand do
   describe '#four_of_a_kind' do
     expect_four_of_a_kind(nil, [])
     expect_four_of_a_kind(nil, ['2H', '3H', '4H', '5H', '6H'])
+    expect_four_of_a_kind(2, ['2H', '2D', '2C', '2S', '3H'])
   end
   
 end
