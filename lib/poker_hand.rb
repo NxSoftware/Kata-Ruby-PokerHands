@@ -19,7 +19,17 @@ class PokerHand
   end
   
   def three_of_a_kind
-    2
+    counts = {}
+    @cards.each do |card|
+      count = (counts[card.value] || 0) + 1
+      counts[card.value] = count
+    end
+    
+    threes = counts.select do |value, count|
+      count == 3
+    end
+    
+    threes.keys.first
   end
   
   private
