@@ -19,17 +19,17 @@ class PokerHand
   end
   
   def three_of_a_kind
-    threes = counts.select do |value, count|
-      count == 3
-    end
-    
-    threes.keys.first
+    cards_occurring(3).keys.first
   end
   
   private
   def pairs
+    cards_occurring 2
+  end
+  
+  def cards_occurring(times)
     counts.select do |value, count|
-      count == 2
+      count == times
     end
   end
   
