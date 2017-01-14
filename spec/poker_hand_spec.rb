@@ -74,6 +74,15 @@ def expect_four_of_a_kind(expected_value, cards)
   end
 end
 
+def expect_straight_flush(expected_highest_value, cards)
+  context "given #{cards}" do
+    it "the highest value of the straight flush is #{expected_highest_value}" do
+      hand = hand(cards)
+      expect(hand.straight_flush).to match(expected_highest_value)
+    end
+  end
+end
+
 describe PokerHand do
   describe '#high_card' do
     expect_high_card(nil, [])
@@ -130,6 +139,12 @@ describe PokerHand do
     expect_four_of_a_kind(nil, [])
     expect_four_of_a_kind(nil, ['2H', '3H', '4H', '5H', '6H'])
     expect_four_of_a_kind(2, ['2H', '2D', '2C', '2S', '3H'])
+  end
+  
+  describe '#straight_flush' do
+    expect_straight_flush(nil, [])
+    expect_straight_flush(nil, ['2H', '3H', '4H', '5H', '7H'])
+    expect_straight_flush(nil, ['2H', '3H', '4H', '5H', '6S'])
   end
   
 end

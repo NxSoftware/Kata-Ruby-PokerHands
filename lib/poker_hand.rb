@@ -52,6 +52,9 @@ class PokerHand
     n_of_a_kind 4
   end
   
+  def straight_flush
+  end
+  
   private
   def pairs
     cards_of_same_value_occurring 2
