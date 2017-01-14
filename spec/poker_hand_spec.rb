@@ -84,6 +84,7 @@ describe PokerHand do
     expect_straight(nil, ['2H', '3H', '4H', '5H', '7H'])
     expect_straight(6, ['2H', '3H', '4H', '5H', '6H'])
     expect_straight(7, ['3H', '4H', '5H', '6H', '7H'])
+    expect_straight(7, ['3H', '4H', '5H', '7H', '6H'])
   end
   
 end
