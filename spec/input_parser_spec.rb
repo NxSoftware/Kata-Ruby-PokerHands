@@ -1,62 +1,50 @@
 RSpec.describe PokerInputParser, '#parse' do
   
-  context 'given input with two players' do
-    input = 'Black: 2H 3D 5S 9C KD  White: 2C 3H 4S 8C AH'
-    parser = PokerInputParser.new input
-    players = parser.players
+  shared_examples_for PokerInputParser do |players_expected_cards|
+    before(:each) do
+      parser = PokerInputParser.new subject
+      @players = parser.players
+    end
     
-    it 'has 2 players' do
-      expect(players.count).to eq(2)
+    it "has #{players_expected_cards.count} players" do
+      expect(@players.count).to eq(players_expected_cards.count)
     end
     
     it 'each player has 5 cards' do
-      players.each do |player|
+      @players.each do |player|
         expect(player.cards.count).to eq(5)
       end
     end
     
-    it 'player 1\'s cards are 2H 3D 5S 9C KD' do
-      expected_cards = ['2H', '3D', '5S', '9C', 'KD']
-      expect(players[0].cards).to match(expected_cards)
+    players_expected_cards.each.with_index do |expected_cards, i|
+      it "player #{i+1}\'s cards are #{expected_cards}" do
+        expect(@players[i].cards).to match(expected_cards)
+      end
     end
+  end
+  
+  context 'given input with two players' do
+    subject { 
+      'Black: 2H 3D 5S 9C KD  White: 2C 3H 4S 8C AH'
+    }
     
-    it 'player 2\'s cards are 2C 3H 4S 8C AH' do
-      expected_cards = ['2C', '3H', '4S', '8C', 'AH']
-      expect(players[1].cards).to match(expected_cards)
-    end
+    it_should_behave_like PokerInputParser, [
+      ['2H', '3D', '5S', '9C', 'KD'],
+      ['2C', '3H', '4S', '8C', 'AH'],
+    ]
     
   end
   
   context 'given input with three players' do
-    input = 'Black: 3H AD 6C 8C QD  White: 8D 3S 5S 9C AH  Orange: 3D 4C 8H AS JD'
-    parser = PokerInputParser.new input
-    players = parser.players
+    subject {
+      'Black: 3H AD 6C 8C QD  White: 8D 3S 5S 9C AH  Orange: 3D 4C 8H AS JD'
+    }
     
-    it 'has 3 players' do
-      expect(players.count).to eq(3)
-    end
-    
-    it 'each player has 5 cards' do
-      players.each do |player|
-        expect(player.cards.count).to eq(5)
-      end
-    end
-    
-    it 'player 1\'s cards are 3H AD 6C 8C QD' do
-      expected_cards = ['3H', 'AD', '6C', '8C', 'QD']
-      expect(players[0].cards).to match(expected_cards)
-    end
-    
-    it 'player 2\'s cards are 8D 3S 5S 9C AH' do
-      expected_cards = ['8D', '3S', '5S', '9C', 'AH']
-      expect(players[1].cards).to match(expected_cards)
-    end
-    
-    it 'player 3\'s cards are 3D 4C 8H AS JD' do
-      expected_cards = ['3D', '4C', '8H', 'AS', 'JD']
-      expect(players[2].cards).to match(expected_cards)
-    end
-    
+    it_should_behave_like PokerInputParser, [
+      ['3H', 'AD', '6C', '8C', 'QD'],
+      ['8D', '3S', '5S', '9C', 'AH'],
+      ['3D', '4C', '8H', 'AS', 'JD'],
+    ]
   end
   
 end
