@@ -38,6 +38,15 @@ def expect_three_of_a_kind(expected_value, cards)
   end
 end
 
+def expect_straight(expected_highest_value, cards)
+  context "given #{cards}" do
+    it "the highest value of the straight is #{expected_highest_value}" do
+      hand = hand(cards)
+      expect(hand.straight).to match(expected_highest_value)
+    end
+  end
+end
+
 describe PokerHand do
   describe '#high_card' do
     expect_high_card(nil, [])
@@ -68,6 +77,10 @@ describe PokerHand do
     expect_three_of_a_kind(nil, ['2H', '3H', '4H', '5H', '6H'])
     expect_three_of_a_kind(2, ['2H', '3C', '2S', '4D', '2C'])
     expect_three_of_a_kind(3, ['3H', '3C', '3S', '4D', '5C'])
+  end
+  
+  describe '#straight' do
+    expect_straight(6, ['2H', '3H', '4H', '5H', '6H'])
   end
   
 end

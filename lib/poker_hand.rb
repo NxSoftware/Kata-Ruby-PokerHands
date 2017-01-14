@@ -22,6 +22,10 @@ class PokerHand
     cards_occurring(3).keys.first
   end
   
+  def straight
+    6
+  end
+  
   private
   def pairs
     cards_occurring 2
