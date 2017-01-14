@@ -10,6 +10,15 @@ class CardParser
     else return nil
     end
     
-    Card.new value, input[1]
+    suit = input[1]
+    
+    return nil unless [
+      Suit::HEARTS,
+      Suit::DIAMONDS,
+      Suit::CLUBS,
+      Suit::SPADES
+    ].include? suit
+    
+    Card.new value, suit
   end
 end
