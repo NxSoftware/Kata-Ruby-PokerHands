@@ -19,7 +19,7 @@ class PokerHand
   end
   
   def three_of_a_kind
-    cards_of_same_value_occurring(3).keys.first
+    n_of_a_kind 3
   end
   
   def straight
@@ -49,12 +49,16 @@ class PokerHand
   end
   
   def four_of_a_kind
-    cards_of_same_value_occurring(4).keys.first
+    n_of_a_kind 4
   end
   
   private
   def pairs
     cards_of_same_value_occurring 2
+  end
+  
+  def n_of_a_kind(count)
+    cards_of_same_value_occurring(count).keys.first
   end
   
   def cards_of_same_value_occurring(times)
