@@ -6,7 +6,7 @@ def expect_high_card(expected_value, cards)
   context "given #{cards}" do
     it "the high card is #{expected_value}" do
       hand = hand(cards)
-      expect(hand.high_card).to eq(expected_value)
+      expect(hand.high_card).to be(expected_value)
     end
   end
 end
@@ -15,7 +15,7 @@ def expect_pair(expected_value, cards)
   context "given #{cards}" do
     it "the pair's value is #{expected_value}" do
       hand = hand(cards)
-      expect(hand.pair).to match(expected_value)
+      expect(hand.pair).to be(expected_value)
     end
   end
 end
@@ -33,34 +33,34 @@ def expect_three_of_a_kind(expected_value, cards)
   context "given #{cards}" do
     it "the values of the 3OAK is #{expected_value}" do
       hand = hand(cards)
-      expect(hand.three_of_a_kind).to match(expected_value)
+      expect(hand.three_of_a_kind).to be(expected_value)
     end
   end
 end
 
-def expect_straight(expected_highest_value, cards)
+def expect_straight(expected_value, cards)
   context "given #{cards}" do
-    it "the highest value of the straight is #{expected_highest_value}" do
+    it "the highest value of the straight is #{expected_value}" do
       hand = hand(cards)
-      expect(hand.straight).to match(expected_highest_value)
+      expect(hand.straight).to be(expected_value)
     end
   end
 end
 
-def expect_flush(expected_highest_value, cards)
+def expect_flush(expected_value, cards)
   context "given #{cards}" do
-    it "the highest value of the flush is #{expected_highest_value}" do
+    it "the highest value of the flush is #{expected_value}" do
       hand = hand(cards)
-      expect(hand.flush).to match(expected_highest_value)
+      expect(hand.flush).to be(expected_value)
     end
   end
 end
 
-def expect_full_house(expected_highest_value, cards)
+def expect_full_house(expected_value, cards)
   context "given #{cards}" do
-    it "the highest value of the full house is #{expected_highest_value}" do
+    it "the highest value of the full house is #{expected_value}" do
       hand = hand(cards)
-      expect(hand.full_house).to match(expected_highest_value)
+      expect(hand.full_house).to be(expected_value)
     end
   end
 end
@@ -69,16 +69,16 @@ def expect_four_of_a_kind(expected_value, cards)
   context "given #{cards}" do
     it "the values of the 4OAK is #{expected_value}" do
       hand = hand(cards)
-      expect(hand.four_of_a_kind).to match(expected_value)
+      expect(hand.four_of_a_kind).to be(expected_value)
     end
   end
 end
 
-def expect_straight_flush(expected_highest_value, cards)
+def expect_straight_flush(expected_value, cards)
   context "given #{cards}" do
-    it "the highest value of the straight flush is #{expected_highest_value}" do
+    it "the highest value of the straight flush is #{expected_value}" do
       hand = hand(cards)
-      expect(hand.straight_flush).to match(expected_highest_value)
+      expect(hand.straight_flush).to be(expected_value)
     end
   end
 end
