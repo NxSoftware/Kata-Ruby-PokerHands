@@ -19,7 +19,7 @@ class PokerHand
   end
   
   def three_of_a_kind
-    cards_occurring(3).keys.first
+    cards_of_same_value_occurring(3).keys.first
   end
   
   def straight
@@ -35,20 +35,25 @@ class PokerHand
   end
   
   def flush
-    five_of_same_suit = counts_by_suit.select do |_, count|
-      count == 5
-    end
-    
-    @cards.sort.last.value if five_of_same_suit.count == 1
+    five_of_same_suit = cards_of_same_suit_occurring 5
+    @cards.sort.last.value unless five_of_same_suit.empty?
   end
   
   private
   def pairs
-    cards_occurring 2
+    cards_of_same_value_occurring 2
   end
   
-  def cards_occurring(times)
-    counts_by_value.select do |value, count|
+  def cards_of_same_value_occurring(times)
+    cards_occuring times, counts_by_value
+  end
+  
+  def cards_of_same_suit_occurring(times)
+    cards_occuring times, counts_by_suit
+  end
+  
+  def cards_occuring(times, cards)
+    cards.select do |value, count|
       count == times
     end
   end
