@@ -24,10 +24,9 @@ class PokerHand
   
   def straight
     sorted_cards = @cards.sort
-    previous_card = sorted_cards.first
+    previous_card = sorted_cards.shift
     streak = 1
-    (1...sorted_cards.count).each do |i|
-      card = sorted_cards[i]
+    sorted_cards.each do |card|
       streak += 1 if card.value - previous_card.value == 1
       previous_card = card
     end
