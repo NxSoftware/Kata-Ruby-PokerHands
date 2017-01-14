@@ -7,6 +7,7 @@ class CardParser
     when 'Q' then value = 12
     when 'K' then value = 13
     when 'A' then value = 14
+    else return nil
     end
     
     Card.new value, input[1]
