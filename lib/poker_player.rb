@@ -1,10 +1,12 @@
+require_relative 'card.rb'
+
 class PokerPlayer
   
   attr_accessor :cards
   
-  def initialize(colour, cards_string)
+  def initialize(colour, cards)
     @colour = colour
-    @cards = cards_string.split ' '
+    @cards = cards
   end
   
 end

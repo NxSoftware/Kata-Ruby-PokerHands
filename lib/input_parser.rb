@@ -14,7 +14,10 @@ end
 
 class PokerPlayerParser
   def self.parse(input)
-    (colour, cards) = input.split(': ')
+    (colour, cards_string) = input.split ': '
+    cards = cards_string.split(' ').map do |c|
+      Card.new c
+    end
     PokerPlayer.new colour, cards
   end
 end
