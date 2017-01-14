@@ -56,6 +56,13 @@ describe CardParser, '#parse' do
     end
   end
   
+  context 'given invalid input value 1H' do
+    it 'does not create a card' do
+      card = CardParser.parse '1H'
+      expect(card).to be_nil
+    end
+  end
+  
   context 'given invalid input suit 9M' do
     it 'does not create a card' do
       card = CardParser.parse '9M'
