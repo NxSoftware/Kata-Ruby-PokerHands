@@ -34,6 +34,9 @@ class PokerHand
     sorted_cards.last.value if streak == 5
   end
   
+  def flush
+  end
+  
   private
   def pairs
     cards_occurring 2

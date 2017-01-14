@@ -47,6 +47,15 @@ def expect_straight(expected_highest_value, cards)
   end
 end
 
+def expect_flush(expected_highest_value, cards)
+  context "given #{cards}" do
+    it "the highest value of the flush is #{expected_highest_value}" do
+      hand = hand(cards)
+      expect(hand.flush).to match(expected_highest_value)
+    end
+  end
+end
+
 describe PokerHand do
   describe '#high_card' do
     expect_high_card(nil, [])
@@ -85,6 +94,11 @@ describe PokerHand do
     expect_straight(6, ['2H', '3H', '4H', '5H', '6H'])
     expect_straight(7, ['3H', '4H', '5H', '6H', '7H'])
     expect_straight(7, ['3H', '4H', '5H', '7H', '6H'])
+  end
+  
+  describe '#flush' do
+    expect_flush(nil, [])
+    expect_flush(nil, ['2H', '3H', '4H', '5C', '7H'])
   end
   
 end
