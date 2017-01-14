@@ -9,31 +9,25 @@ class PokerHand
   end
   
   def pair
-    counts = {}
-    @cards.each do |card|
-      count = (counts[card.value] || 0) + 1
-      counts[card.value] = count
-    end
-    
-    pairs = counts.select do |value, count|
-      count == 2
-    end
-    
     pairs.keys.first
   end
   
   def two_pair
+    p = pairs()
+    p.keys.sort if p.count > 0
+  end
+  
+  private
+  def pairs
     counts = {}
     @cards.each do |card|
       count = (counts[card.value] || 0) + 1
       counts[card.value] = count
     end
     
-    pairs = counts.select do |value, count|
+    counts.select do |value, count|
       count == 2
     end
-    
-    pairs.keys.sort if pairs.count > 0
   end
   
 end
