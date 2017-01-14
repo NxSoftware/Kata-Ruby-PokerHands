@@ -13,5 +13,9 @@ describe PokerHand, '#high_card' do
 
   expect_high_card('6H', ['2H', '3H', '4H', '5H', '6H'])
   expect_high_card('6H', ['6H', '2H', '3H', '4H', '5H'])
+  expect_high_card('TH', ['9C', 'TH', '8S', '2D', '5H'])
+  expect_high_card('JH', ['9C', 'TH', 'JH', '2D', '5H'])
+  expect_high_card('QC', ['QC', 'TH', 'JH', '2D', '5H'])
+  expect_high_card('KC', ['QC', 'TH', 'JH', 'KC', '5H'])
   
 end
