@@ -25,6 +25,10 @@ describe CardParser, '#parse' do
       :value => 12,
       :suit => Suit::HEARTS
     },
+    'KH' => {
+      :value => 13,
+      :suit => Suit::HEARTS
+    }
   }
   
   inputs.each do |input, v|
