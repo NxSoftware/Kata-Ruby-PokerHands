@@ -53,12 +53,14 @@ describe PokerHand do
     expect_pair(2, ['2H', '4H', '2C', '5H', '6H'])
     expect_pair(3, ['2H', '3C', '3H', '5H', '6H'])
     expect_pair(nil, ['2H', '3C', '4H', '5H', '6H'])
+    expect_pair(nil, [])
   end
   
   describe '#two_pair' do
     expect_two_pair([2, 3], ['2H', '3C', '2S', '4D', '3D'])
     expect_two_pair([9, 10], ['TH', 'TD', '9C', '4C', '9H'])
     expect_two_pair(nil, ['2H', '3C', '4H', '5H', '6H'])
+    expect_two_pair(nil, [])
   end
   
   describe '#three_of_a_kind' do
