@@ -33,3 +33,11 @@ module Suit
     ].include? suit
   end
 end
+
+module CardFace
+  TEN = 'T'
+  JACK = 'J'
+  QUEEN = 'Q'
+  KING = 'K'
+  ACE = 'A'
+end

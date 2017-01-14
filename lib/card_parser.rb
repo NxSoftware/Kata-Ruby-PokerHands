@@ -11,11 +11,11 @@ class CardParser
   def self.card_value(input)
     case input
     when '2'..'9' then return input.to_i
-    when 'T' then return 10
-    when 'J' then return 11
-    when 'Q' then return 12
-    when 'K' then return 13
-    when 'A' then return 14
+    when CardFace::TEN then return 10
+    when CardFace::JACK then return 11
+    when CardFace::QUEEN then return 12
+    when CardFace::KING then return 13
+    when CardFace::ACE then return 14
     end
   end
 end

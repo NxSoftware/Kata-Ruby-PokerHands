@@ -57,7 +57,7 @@ class PokerHand
   end
   
   def royal_flush?
-    straight_flush == 14
+    straight_flush == CardParser.card_value(CardFace::ACE)
   end
   
   private
