@@ -19,12 +19,6 @@ class PokerHand
   end
   
   def three_of_a_kind
-    counts = {}
-    @cards.each do |card|
-      count = (counts[card.value] || 0) + 1
-      counts[card.value] = count
-    end
-    
     threes = counts.select do |value, count|
       count == 3
     end
@@ -34,15 +28,18 @@ class PokerHand
   
   private
   def pairs
-    counts = {}
-    @cards.each do |card|
-      count = (counts[card.value] || 0) + 1
-      counts[card.value] = count
-    end
-    
     counts.select do |value, count|
       count == 2
     end
+  end
+  
+  def counts
+    c = {}
+    @cards.each do |card|
+      count = (c[card.value] || 0) + 1
+      c[card.value] = count
+    end
+    c
   end
   
 end
