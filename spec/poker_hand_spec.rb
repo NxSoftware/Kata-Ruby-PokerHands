@@ -34,6 +34,7 @@ describe PokerHand do
   describe '#pair' do
     expect_pair(2, ['2H', '4H', '2C', '5H', '6H'])
     expect_pair(3, ['2H', '3C', '3H', '5H', '6H'])
+    expect_pair(nil, ['2H', '3C', '4H', '5H', '6H'])
   end
   
 end
