@@ -6,6 +6,7 @@ class CardParser
     when 'J' then value = 11
     when 'Q' then value = 12
     when 'K' then value = 13
+    when 'A' then value = 14
     end
     
     Card.new value, input[1]
