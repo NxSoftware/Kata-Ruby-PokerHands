@@ -1,16 +1,14 @@
 class Card
-  attr_reader :description
   attr_reader :value
   attr_reader :suit
   
   def initialize(value, suit)
-    @description = "#{value}"
     @value = value
     @suit = suit
   end
   
   def ==(other)
-    self.class == other.class && @description == other.description
+    self.class == other.class && @value == other.value && @suit == other.suit
   end
   
   def <=>(other)
