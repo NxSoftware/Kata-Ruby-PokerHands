@@ -23,7 +23,17 @@ class PokerHand
   end
   
   def two_pair
-    [2, 3]
+    counts = {}
+    @cards.each do |card|
+      count = (counts[card.value] || 0) + 1
+      counts[card.value] = count
+    end
+    
+    pairs = counts.select do |value, count|
+      count == 2
+    end
+    
+    pairs.keys.sort
   end
   
 end

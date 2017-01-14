@@ -48,6 +48,7 @@ describe PokerHand do
   
   describe '#two_pair' do
     expect_two_pair([2, 3], ['2H', '3C', '2S', '4D', '3D'])
+    expect_two_pair([9, 10], ['TH', 'TD', '9C', '4C', '9H'])
   end
   
 end
