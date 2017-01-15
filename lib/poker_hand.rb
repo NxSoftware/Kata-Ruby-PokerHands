@@ -15,7 +15,7 @@ class PokerHand
   
   def two_pair
     p = pairs()
-    p.keys.sort if p.count > 0
+    p.keys.sort if p.count == 2
   end
   
   def three_of_a_kind
@@ -61,6 +61,9 @@ class PokerHand
   end
   
   def rank
+    value = two_pair
+    return :two_pair, value if value
+    
     value = pair
     return :pair, value if value
     
