@@ -61,6 +61,9 @@ class PokerHand
   end
   
   def rank
+    value = four_of_a_kind
+    return :four_of_a_kind, value if value
+    
     value = full_house
     return :full_house, value if value
     

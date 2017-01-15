@@ -60,4 +60,11 @@ describe PokerHand, '#rank' do
     end
   end
   
+  context 'given 2H 3S 2S 2D 2C' do
+    it "rank is four of a kind of 2's" do
+      cards = ['2H', '3S', '2S', '2D', '2C']
+      expect_rank(cards).to eq([:four_of_a_kind, 2])
+    end
+  end
+  
 end
