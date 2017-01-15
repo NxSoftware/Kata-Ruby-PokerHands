@@ -61,6 +61,9 @@ class PokerHand
   end
   
   def rank
+    value = full_house
+    return :full_house, value if value
+    
     value = flush
     return :flush, value if value
     
