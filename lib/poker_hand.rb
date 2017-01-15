@@ -60,6 +60,10 @@ class PokerHand
     straight_flush == CardParser.card_value(CardFace::ACE)
   end
   
+  def rank
+    return :high_card, 6
+  end
+  
   private
   def pairs
     cards_of_same_value_occurring 2
