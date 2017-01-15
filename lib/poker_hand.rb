@@ -61,6 +61,9 @@ class PokerHand
   end
   
   def rank
+    value = straight_flush
+    return :straight_flush, value if value
+    
     value = four_of_a_kind
     return :four_of_a_kind, value if value
     

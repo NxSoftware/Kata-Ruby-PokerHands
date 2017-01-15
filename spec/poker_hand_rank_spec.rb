@@ -67,4 +67,11 @@ describe PokerHand, '#rank' do
     end
   end
   
+  context 'given 2H 3H 4H 5H 6H' do
+    it "rank is straight flush, high card being 6" do
+      cards = ['2H', '3H', '4H', '5H', '6H']
+      expect_rank(cards).to eq([:straight_flush, 6])
+    end
+  end
+  
 end
