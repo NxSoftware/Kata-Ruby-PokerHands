@@ -61,6 +61,9 @@ class PokerHand
   end
   
   def rank
+    value = royal_flush?
+    return [:royal_flush] if value
+    
     value = straight_flush
     return :straight_flush, value if value
     
