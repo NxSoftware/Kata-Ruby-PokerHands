@@ -27,4 +27,11 @@ describe PokerHand, '#rank' do
     end
   end
   
+  context 'given 2H 2D 2S 3C 6H' do
+    it "rank is three of a kind of 2's" do
+      hand = make_hand ['2H', '2D', '2S', '3C', '6H']
+      expect(hand.rank).to eq([:three_of_a_kind, 2])
+    end
+  end
+  
 end
