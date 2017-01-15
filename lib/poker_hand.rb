@@ -61,6 +61,9 @@ class PokerHand
   end
   
   def rank
+    value = straight
+    return :straight, value if value
+    
     value = three_of_a_kind
     return :three_of_a_kind, value if value
     

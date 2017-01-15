@@ -12,9 +12,9 @@ end
 describe PokerHand, '#rank' do
   
   context 'given 2H 3D 4S 5C 6H' do
-    it 'rank is high card with 6' do
-      cards = ['2H', '3D', '4S', '5C', '6H']
-      expect_rank(cards).to eq([:high_card, 6])
+    it 'rank is high card with 7' do
+      cards = ['2H', '3D', '4S', '5C', '7H']
+      expect_rank(cards).to eq([:high_card, 7])
     end
   end
   
@@ -36,6 +36,13 @@ describe PokerHand, '#rank' do
     it "rank is three of a kind of 2's" do
       cards = ['2H', '2D', '2S', '3C', '6H']
       expect_rank(cards).to eq([:three_of_a_kind, 2])
+    end
+  end
+  
+  context 'given 2H 3D 4S 5C 6H' do
+    it "rank is straight, high card being 6" do
+      cards = ['2H', '3D', '4S', '5C', '6H']
+      expect_rank(cards).to eq([:straight, 6])
     end
   end
   
