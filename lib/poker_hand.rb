@@ -61,7 +61,11 @@ class PokerHand
   end
   
   def rank
-    return :high_card, 6
+    value = pair
+    return :pair, value if value
+    
+    value = high_card
+    return :high_card, value
   end
   
   private
