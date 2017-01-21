@@ -5,7 +5,7 @@ end
   
 describe PokerHand, '#rank' do
   
-  context 'given 2H 3D 4S 5C 6H' do
+  context 'given 2H 3D 4S 5C 7H' do
     it 'rank is high card with 7' do
       cards = ['2H', '3D', '4S', '5C', '7H']
       expect_rank(cards).to eq([:high_card, 7])
