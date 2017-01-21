@@ -92,6 +92,10 @@ class PokerHand
     return :high_card, value
   end
   
+  def <=>(other)
+    1
+  end
+  
   private
   def pairs
     cards_of_same_value_occurring 2

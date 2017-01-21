@@ -1,17 +1,22 @@
-RSpec::Matchers.define :beat do |expected_losing_cards, expected_winning_rank|
-  match do |expected_winning_cards|
-    expected_winning_hand = make_hand expected_winning_cards
-    expected_losing_hand = make_hand expected_losing_cards
+def winner_of(cards1, cards2)
+  hand1 = make_hand cards1
+  hand2 = make_hand cards2
+  
+  PokerHandWinner.winner hand1, hand2
+end
+
+RSpec::Matchers.define :win_with do |expected_winning_rank, expected_winning_value|
+  match do |actual_winner|
+    actual_rank = actual_winner.hand.rank
+    actual_winning_rank = actual_rank[0]
+    actual_winning_value = actual_rank[1]
     
-    winner = PokerHandWinner.winner(expected_winning_hand, expected_losing_hand)
-    
-    return false unless winner
-    
-    winner.hand == expected_winning_hand
+    actual_winning_rank == expected_winning_rank &&
+    actual_winning_value == expected_winning_value
   end
   
-  failure_message do |expected_winning_cards|
-    "expected #{expected_winning_cards} to beat #{expected_losing_cards} with rank of #{expected_winning_rank}"
+  failure_message do |actual_winner|
+    "expected to win with rank of [#{expected_winning_rank}, #{expected_winning_value}] actual: #{actual_winner}"
   end
 end
 
@@ -35,7 +40,7 @@ describe PokerHandWinner, '#winner' do
     it '2nd hand wins with high card of 8' do
       cards1 = ['2H', '3D', '4S', '5C', '7H']
       cards2 = ['2C', '3C', '4H', '5D', '8S']
-      expect(cards2).to beat(cards1, [:high_card, 8])
+      expect(winner_of cards1, cards2).to win_with(:high_card, 8)
     end
   end
   
