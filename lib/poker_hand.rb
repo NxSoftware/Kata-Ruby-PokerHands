@@ -95,7 +95,8 @@ class PokerHand
   def <=>(other)
     ordered_ranks = [
       :high_card,
-      :pair
+      :pair,
+      :two_pair
     ]
     
     this_rank = ordered_ranks.index self.rank[0]
