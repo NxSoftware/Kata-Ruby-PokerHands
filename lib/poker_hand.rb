@@ -96,7 +96,8 @@ class PokerHand
     ordered_ranks = [
       :high_card,
       :pair,
-      :two_pair
+      :two_pair,
+      :three_of_a_kind
     ]
     
     this_rank = ordered_ranks.index self.rank[0]
