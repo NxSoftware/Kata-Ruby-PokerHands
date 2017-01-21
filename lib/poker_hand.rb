@@ -93,7 +93,22 @@ class PokerHand
   end
   
   def <=>(other)
-    1
+    ordered_ranks = [
+      :high_card,
+      :pair
+    ]
+    
+    this_rank = ordered_ranks.index self.rank[0]
+    other_rank = ordered_ranks.index other.rank[0]
+    rank_comparison = this_rank <=> other_rank
+    
+    if rank_comparison == 0 then
+      this_value = self.rank[1]
+      other_value = other.rank[1]
+      this_value <=> other_value
+    else
+      rank_comparison
+    end
   end
   
   private

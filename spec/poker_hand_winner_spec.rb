@@ -44,4 +44,12 @@ describe PokerHandWinner, '#winner' do
     end
   end
   
+  context 'given 2H 3D 2S 5C 7H and 2C 3C 4H 5D 8S' do
+    it '1st hand wins with pair of 2s' do
+      cards1 = ['2H', '3D', '2S', '5C', '7H']
+      cards2 = ['2C', '3C', '4H', '5D', '8S']
+      expect(winner_of cards1, cards2).to win_with(:pair, 2)
+    end
+  end
+  
 end
