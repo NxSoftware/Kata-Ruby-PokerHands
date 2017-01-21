@@ -3,12 +3,6 @@ def expect_rank(cards, &matcher)
   expect(hand.rank)
 end
   
-def make_hand(cards)
-  PokerHand.new(cards.map do |c|
-    CardParser.parse c
-  end)
-end
-
 describe PokerHand, '#rank' do
   
   context 'given 2H 3D 4S 5C 6H' do

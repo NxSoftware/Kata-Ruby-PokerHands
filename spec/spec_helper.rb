@@ -17,6 +17,7 @@
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 
+require_relative 'helpers.rb'
 require_relative '../lib/pokerhands.rb'
 
 RSpec.configure do |config|
