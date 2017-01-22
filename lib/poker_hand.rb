@@ -100,7 +100,8 @@ class PokerHand
       :three_of_a_kind,
       :straight,
       :flush,
-      :full_house
+      :full_house,
+      :four_of_a_kind
     ]
     
     this_rank = ordered_ranks.index self.rank[0]

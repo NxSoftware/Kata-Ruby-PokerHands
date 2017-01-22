@@ -140,4 +140,12 @@ describe PokerHandWinner, '#winner' do
     end
   end
   
+  context 'given 2H 3C 3H 3D 3S and 2D 4C 4H 4D 2H' do
+    it '1st hand wins with 4 of a kind of 3s' do
+      cards1 = ['2H', '3C', '3H', '3D', '3S']
+      cards2 = ['2D', '4C', '4H', '4D', '2H']
+      expect(winner_of cards1, cards2).to win_with(:four_of_a_kind, 3)
+    end
+  end
+  
 end
