@@ -98,7 +98,8 @@ class PokerHand
       :pair,
       :two_pair,
       :three_of_a_kind,
-      :straight
+      :straight,
+      :flush
     ]
     
     this_rank = ordered_ranks.index self.rank[0]
