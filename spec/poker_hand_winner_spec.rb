@@ -172,4 +172,12 @@ describe PokerHandWinner, '#winner' do
     end
   end
   
+  context 'given TH JH QH KH AH and 3C 4C 5C 6C 7C' do
+    it '1st hand wins with a royal flush' do
+      cards1 = ['TH', 'JH', 'QH', 'KH', 'AH']
+      cards2 = ['3C', '4C', '5C', '6C', '7C']
+      expect(winner_of cards1, cards2).to win_with(:royal_flush)
+    end
+  end
+  
 end
