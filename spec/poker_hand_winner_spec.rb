@@ -124,4 +124,12 @@ describe PokerHandWinner, '#winner' do
     end
   end
   
+  context 'given 2H 3C 3H 3D 2S and 2C 4C 6C 8C JC' do
+    it '1st hand wins with a full house of 3s' do
+      cards1 = ['2H', '3C', '3H', '3D', '2S']
+      cards2 = ['2C', '4C', '6C', '8C', 'JC']
+      expect(winner_of cards1, cards2).to win_with(:full_house, 3)
+    end
+  end
+  
 end
