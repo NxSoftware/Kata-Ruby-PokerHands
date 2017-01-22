@@ -156,4 +156,12 @@ describe PokerHandWinner, '#winner' do
     end
   end
   
+  context 'given 2H 3H 4H 5H 6H and 2D 4C 4H 4D 4S' do
+    it '1st hand wins with a straight flush, highest card being 6' do
+      cards1 = ['2H', '3H', '4H', '5H', '6H']
+      cards2 = ['2D', '4C', '4H', '4D', '4S']
+      expect(winner_of cards1, cards2).to win_with(:straight_flush, 6)
+    end
+  end
+  
 end
